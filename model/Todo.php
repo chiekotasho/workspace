@@ -27,6 +27,17 @@ public static function findAll() {
 
     return $todo_list;
     }
+
+public static function findById($todo_id) {
+    $pdo = new PDO(DSN, USERNAME, PASSWORD);
+    $stmh = $pdo->query(sprintf('select * from todos where id = %s' , $todo_id));
+    
+    if($stmh) {
+        $todo = $stmh->fetch(PDO::FETCH_ASSOC);
+    } else {
+        $todo = array();
+    }
+
+    return $todo;
+    }
 }
-
-
