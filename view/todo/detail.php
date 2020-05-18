@@ -6,7 +6,6 @@ require_once '../../controller/TodoController.php';
 $controller = new TodoController;
 $todo = $controller->detail();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +17,16 @@ $todo = $controller->detail();
     <title>詳細画面</title>
 </head>
 <body>
-    <div>タイトル</div>
-    <div><?php echo $todo['title']; ?></div>
-    <div>詳細</div>
-    <div><?php echo $todo['detail']; ?></div>
+    <thead>
+        <tr>
+        <th>タイトル</th>
+        <th>詳細</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <td><?php echo $todo['title']; ?></td>
+        <td><?php echo $todo['detail']; ?></td>
+    </tbody>
 </body>
 </html>
